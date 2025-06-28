@@ -1,96 +1,111 @@
 body {
-  background: linear-gradient(135deg, #87CEEB 0%, #98FB98 100%);
+  background: linear-gradient(135deg, #FFE5F1 0%, #E0F7FA 50%, #F3E5F5 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  overflow: hidden;
 }
 
 .pikachu {
   position: relative;
-  width: 400px;
-  height: 500px;
-  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.2));
+  width: 350px;
+  height: 450px;
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.15));
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-8px) rotate(1deg); }
+  50% { transform: translateY(-15px) rotate(0deg); }
+  75% { transform: translateY(-8px) rotate(-1deg); }
 }
 
 /* Ears */
 .ear {
   position: absolute;
-  width: 50px;
-  height: 140px;
-  background: #f6d02f;
+  width: 45px;
+  height: 130px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFEB3B 100%);
   border-radius: 50px 50px 0 0;
-  top: -20px;
+  top: -15px;
   z-index: 1;
-  box-shadow: 0 4px 0 #e2b400;
+  box-shadow: 0 6px 0 #FFC107, inset 0 -5px 10px rgba(0,0,0,0.1);
 }
 
 .ear.left {
-  left: 30px;
-  transform: rotate(-20deg);
-  border-top: 25px solid #2f2323;
+  left: 35px;
+  transform: rotate(-18deg);
+  border-top: 22px solid #2f2323;
 }
 
 .ear.right {
-  right: 30px;
-  transform: rotate(20deg);
-  border-top: 25px solid #2f2323;
+  right: 35px;
+  transform: rotate(18deg);
+  border-top: 22px solid #2f2323;
 }
 
 /* Face */
 .face {
   position: absolute;
-  top: 80px;
+  top: 70px;
   left: 50%;
   transform: translateX(-50%);
-  width: 280px;
-  height: 240px;
-  background: #f6d02f;
+  width: 260px;
+  height: 220px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFEB3B 50%, #FFD700 100%);
   border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
   z-index: 2;
-  box-shadow: 0 8px 0 #e2b400, inset 0 -10px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 0 #FFC107, inset 0 -8px 15px rgba(0,0,0,0.1);
 }
 
 /* Eyes */
 .eye {
   position: absolute;
-  top: 90px;
-  width: 50px;
-  height: 50px;
+  top: 80px;
+  width: 45px;
+  height: 45px;
   background: #2f2323;
   border-radius: 50%;
   z-index: 3;
-  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.4);
 }
 
 .eye.left {
-  left: 60px;
+  left: 65px;
 }
 
 .eye.right {
-  right: 60px;
+  right: 65px;
 }
 
 .eye span {
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   background: #fff;
   border-radius: 50%;
-  margin: 10px 0 0 20px;
+  margin: 8px 0 0 18px;
   box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+  animation: blink 3s infinite;
+}
+
+@keyframes blink {
+  0%, 90%, 100% { transform: scaleY(1); }
+  95% { transform: scaleY(0.1); }
 }
 
 /* Nose */
 .nose {
   position: absolute;
-  top: 140px;
+  top: 125px;
   left: 50%;
   transform: translateX(-50%);
-  width: 18px;
-  height: 12px;
+  width: 16px;
+  height: 10px;
   background: #2f2323;
   border-radius: 50% 50% 60% 60%;
   z-index: 4;
@@ -99,30 +114,36 @@ body {
 /* Cheeks */
 .cheek {
   position: absolute;
-  top: 170px;
-  width: 55px;
-  height: 55px;
-  background: #fc0d1b;
+  top: 155px;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, #FF6B9D 0%, #FF4081 100%);
   border-radius: 50%;
   z-index: 3;
-  box-shadow: inset 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: inset 0 3px 6px rgba(0,0,0,0.2);
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  0% { box-shadow: inset 0 3px 6px rgba(0,0,0,0.2), 0 0 10px rgba(255,107,157,0.3); }
+  100% { box-shadow: inset 0 3px 6px rgba(0,0,0,0.2), 0 0 20px rgba(255,107,157,0.6); }
 }
 
 .cheek.left {
-  left: 25px;
+  left: 30px;
 }
 
 .cheek.right {
-  right: 25px;
+  right: 30px;
 }
 
 /* Mouth */
 .mouth {
   position: absolute;
-  top: 180px;
+  top: 165px;
   left: 50%;
-  width: 100px;
-  height: 50px;
+  width: 90px;
+  height: 45px;
   transform: translateX(-50%);
   z-index: 4;
   display: flex;
@@ -130,83 +151,83 @@ body {
 }
 
 .smile {
-  width: 45px;
-  height: 45px;
-  border: 5px solid #2f2323;
+  width: 40px;
+  height: 40px;
+  border: 4px solid #2f2323;
   border-top: none;
   border-left: none;
-  border-radius: 0 0 45px 45px;
+  border-radius: 0 0 40px 40px;
   background: transparent;
 }
 
 .smile.left {
-  transform: rotate(-12deg);
+  transform: rotate(-10deg);
 }
 
 .smile.right {
-  transform: scaleX(-1) rotate(-12deg);
+  transform: scaleX(-1) rotate(-10deg);
 }
 
 /* Body */
 .body {
   position: absolute;
-  top: 280px;
+  top: 250px;
   left: 50%;
   transform: translateX(-50%);
-  width: 320px;
-  height: 200px;
-  background: #f6d02f;
+  width: 280px;
+  height: 180px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFEB3B 50%, #FFD700 100%);
   border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
   z-index: 1;
-  box-shadow: 0 8px 0 #e2b400, inset 0 -15px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 0 #FFC107, inset 0 -12px 20px rgba(0,0,0,0.1);
 }
 
 /* Belly */
 .belly {
   position: absolute;
-  top: 30px;
+  top: 25px;
   left: 50%;
   transform: translateX(-50%);
-  width: 200px;
-  height: 120px;
-  background: #fff9c4;
+  width: 180px;
+  height: 110px;
+  background: linear-gradient(135deg, #FFF9C4 0%, #FFFDE7 100%);
   border-radius: 50% 50% 40% 40% / 60% 60% 40% 40%;
   z-index: 2;
-  box-shadow: inset 0 5px 10px rgba(0,0,0,0.1);
+  box-shadow: inset 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Arms */
 .arm {
   position: absolute;
-  top: 50px;
-  width: 80px;
-  height: 120px;
-  background: #f6d02f;
-  border-radius: 40px;
+  top: 40px;
+  width: 70px;
+  height: 100px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFEB3B 100%);
+  border-radius: 35px;
   z-index: 3;
-  box-shadow: 0 4px 0 #e2b400;
+  box-shadow: 0 5px 0 #FFC107;
 }
 
 .arm.left {
-  left: -20px;
-  transform: rotate(-25deg);
+  left: -15px;
+  transform: rotate(-20deg);
 }
 
 .arm.right {
-  right: -20px;
-  transform: rotate(25deg);
+  right: -15px;
+  transform: rotate(20deg);
 }
 
 /* Hands */
 .hand {
   position: absolute;
-  bottom: -10px;
-  width: 60px;
-  height: 60px;
-  background: #f6d02f;
+  bottom: -8px;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFEB3B 100%);
   border-radius: 50%;
   z-index: 4;
-  box-shadow: 0 4px 0 #e2b400;
+  box-shadow: 0 4px 0 #FFC107;
 }
 
 .hand.left {
@@ -220,90 +241,86 @@ body {
 /* Legs */
 .leg {
   position: absolute;
-  bottom: -40px;
-  width: 100px;
-  height: 140px;
-  background: #f6d02f;
-  border-radius: 50px;
+  bottom: -30px;
+  width: 85px;
+  height: 120px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFEB3B 100%);
+  border-radius: 45px;
   z-index: 2;
-  box-shadow: 0 6px 0 #e2b400;
+  box-shadow: 0 6px 0 #FFC107;
 }
 
 .leg.left {
-  left: 60px;
+  left: 70px;
 }
 
 .leg.right {
-  right: 60px;
+  right: 70px;
 }
 
 /* Feet */
 .foot {
   position: absolute;
-  bottom: -20px;
-  width: 80px;
-  height: 40px;
+  bottom: -15px;
+  width: 70px;
+  height: 35px;
   background: #2f2323;
-  border-radius: 40px;
+  border-radius: 35px;
   z-index: 3;
 }
 
 .foot.left {
-  left: 10px;
+  left: 8px;
 }
 
 .foot.right {
-  right: 10px;
+  right: 8px;
 }
 
 /* Tail */
 .tail {
   position: absolute;
-  top: 320px;
-  right: -80px;
+  top: 280px;
+  right: -70px;
   z-index: 0;
+  animation: wag 2s ease-in-out infinite;
+}
+
+@keyframes wag {
+  0%, 100% { transform: rotate(45deg); }
+  50% { transform: rotate(55deg); }
 }
 
 .tail-base {
-  width: 60px;
-  height: 120px;
-  background: #f6d02f;
-  border-radius: 30px;
+  width: 50px;
+  height: 100px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFEB3B 100%);
+  border-radius: 25px;
   transform: rotate(45deg);
-  box-shadow: 0 4px 0 #e2b400;
+  box-shadow: 0 4px 0 #FFC107;
 }
 
 .tail-tip {
   position: absolute;
-  top: 80px;
-  left: 20px;
-  width: 80px;
-  height: 80px;
-  background: #f6d02f;
+  top: 70px;
+  left: 15px;
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, #FFD700 0%, #FFEB3B 100%);
   border-radius: 50%;
   transform: rotate(45deg);
-  box-shadow: 0 4px 0 #e2b400;
+  box-shadow: 0 4px 0 #FFC107;
 }
 
 .tail-tip::before {
   content: '';
   position: absolute;
-  top: 20px;
-  left: 20px;
-  width: 40px;
-  height: 40px;
+  top: 15px;
+  left: 15px;
+  width: 35px;
+  height: 35px;
   background: #2f2323;
   border-radius: 50%;
-}
-
-/* Animation */
-.pikachu {
-  animation: bounce 3s ease-in-out infinite;
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
 }
 
 /* Responsive */
